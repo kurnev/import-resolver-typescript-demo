@@ -1,2 +1,2 @@
-import { x } from "@shared";
-import { y } from "@non-existing-package";
+import { x } from '@shared'
+import { y } from '@non-existing-package'

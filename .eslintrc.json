@@ -1,47 +1,18 @@
 {
-  "parser": "@typescript-eslint/parser",
   "root": true,
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/errors",
+    "plugin:import/typescript"
+  ],
   "parserOptions": {
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "modules": true
-    }
+    "project": "tsconfig.eslint.json"
   },
   "settings": {
-    "import/parsers": {
-      "@typescript-eslint/parser": [".ts"]
+    "import/resolver": {
+      "typescript": {}
     }
-  },
-  "plugins": ["import"],
-  "overrides": [
-    {
-      "files": ["./a/**/*.ts"],
-      "parserOptions": {
-        "project": "./a/tsconfig.json"
-      },
-      "settings": {
-        "import/resolver": {
-          "typescript": {
-            "directory": "./a/tsconfig.json"
-          }
-        }
-      }
-    },
-    {
-      "files": ["./b/**/*.ts"],
-      "parserOptions": {
-        "project": "./b/tsconfig.json"
-      },
-      "settings": {
-        "import/resolver": {
-          "typescript": {
-            "directory": "./b/tsconfig.json"
-          }
-        }
-      }
-    }
-  ],
-  "rules": {
-    "import/no-unresolved": "error"
   }
 }
