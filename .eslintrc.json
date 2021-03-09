@@ -1,11 +1,14 @@
 {
   "parser": "@typescript-eslint/parser",
-  "root": true,
   "parserOptions": {
-    "sourceType": "module",
+    "ecmaVersion": 2019,
     "ecmaFeatures": {
       "modules": true
-    }
+    },
+    "project": [
+      "./*/tsconfig.json"
+    ],
+    "sourceType": "module"
   },
   "settings": {
     "import/parsers": {
@@ -16,26 +19,20 @@
   "overrides": [
     {
       "files": ["./a/**/*.ts"],
-      "parserOptions": {
-        "project": "./a/tsconfig.json"
-      },
       "settings": {
         "import/resolver": {
           "typescript": {
-            "directory": "./a/tsconfig.json"
+            "project": "./a/tsconfig.json"
           }
         }
       }
     },
     {
       "files": ["./b/**/*.ts"],
-      "parserOptions": {
-        "project": "./b/tsconfig.json"
-      },
       "settings": {
         "import/resolver": {
           "typescript": {
-            "directory": "./b/tsconfig.json"
+            "project": "./b/tsconfig.json"
           }
         }
       }
